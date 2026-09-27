@@ -1,4 +1,4 @@
-package turmanila.pweb3;
+package turmalina.pweb3;
 
 public class Main {
     public static void main(String[] args) {

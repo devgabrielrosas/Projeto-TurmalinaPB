@@ -10,6 +10,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+// Classe abstrata que vai implementar mapeamento de herança, precisa ser pensada a estratégia que será utilizada
+
 @Entity
 @Table(name = "pessoa")
 @Getter

@@ -13,12 +13,13 @@ import lombok.Setter;
 import turmalina.pweb3.model.enums.NivelCertificado;
 
 @Entity 
-@Table(name = "GuiaEspeleologia")
+@Table(name = "guia_espeleologia")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class GuiaEspeleologia extends Pessoa {
+    
     private String numeroCredenciamento;
     private LocalDate validadeCertificado;
     private int expedicoesConcluidas;

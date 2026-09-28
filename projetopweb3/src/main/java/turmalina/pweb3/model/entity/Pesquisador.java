@@ -13,7 +13,7 @@ import lombok.Setter;
 import turmalina.pweb3.model.enums.Titulacao;
 
 @Entity 
-@Table(name = "Pesquisador")
+@Table(name = "pesquisador")
 @Getter
 @Setter
 @NoArgsConstructor

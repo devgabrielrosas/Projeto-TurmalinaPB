@@ -1,0 +1,4 @@
+# Relatório de Justificativa das Decisões Tomadas no Projeto
+
+## Herança
+    A herança presente no projeto é a de Pessoa que é herdada para Pesquisador e Guia de Espeleologia e JOINED foi a estratégia utilizada para mapeá-la de objeto java para o banco relacional; nessa estratégia todas as classes, concretas ou abstratas, possuem uma tabela e os IDs das subclasses são utilizados como PKs e FKs para a superclasse. Essa estratégia foi utilizada, pois se criássemos apenas uma tabela incluindo todos os dados haveriam muitos campos nulos, os quais precisam ser tratados em níveis mais baixos da aplicação e possuem certo custo. Além disso, não foi criada apenas entidades para as subclasses porque Pessoa (superclasse) possui muitos campos/atributos, logo seriam repetidos em cada uma das subclasses.

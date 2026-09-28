@@ -10,7 +10,7 @@
 
     <persistence-unit
         name="turmalinaPU"
-        transaction-type="RESOURCE_LOCAL">
+        transaction-type="JTA">
 
         <provider>
             org.hibernate.jpa.HibernatePersistenceProvider

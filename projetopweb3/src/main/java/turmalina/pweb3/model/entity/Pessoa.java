@@ -1,5 +1,6 @@
 package turmalina.pweb3.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,8 +31,12 @@ public abstract class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 70)
     private String nome;
+
+    @Column(nullable=false, length=11)
     private String cpf;
+
     private String email;
     private String telefone;
     private boolean situacaoAtiva;

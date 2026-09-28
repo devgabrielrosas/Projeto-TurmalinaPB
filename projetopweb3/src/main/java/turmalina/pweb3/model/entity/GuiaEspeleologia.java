@@ -2,6 +2,7 @@ package turmalina.pweb3.model.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,8 +20,10 @@ import turmalina.pweb3.model.enums.NivelCertificado;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GuiaEspeleologia extends Pessoa {
-    
+
+    @Column(nullable=false)
     private String numeroCredenciamento;
+    
     private LocalDate validadeCertificado;
     private int expedicoesConcluidas;
 

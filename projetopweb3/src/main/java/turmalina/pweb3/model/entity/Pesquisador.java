@@ -2,6 +2,7 @@ package turmalina.pweb3.model.entity;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -20,8 +21,11 @@ import turmalina.pweb3.model.enums.Titulacao;
 @AllArgsConstructor
 public class Pesquisador extends Pessoa {
 
+    @Column(nullable=false)
     private String registroInstitucional;
     private String areaPrincipal;
+
+    @Column(precision = 10, scale = 2)
     private BigDecimal valorDiarioBolsa; 
 
     @Enumerated(EnumType.STRING)

@@ -28,7 +28,7 @@ public class GuiaEspeleologia extends Pessoa {
     private LocalDate validadeCertificado;
 
     @Column (name="expedicoes_concluidas")
-    private int expedicoesConcluidas;
+    private Integer expedicoesConcluidas;
 
     @Enumerated(EnumType.STRING)
     private NivelCertificado nivelCertificado;

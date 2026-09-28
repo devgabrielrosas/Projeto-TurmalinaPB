@@ -61,14 +61,14 @@ public class Expedicao {
     private BigDecimal custoRealizado;
 
     @Column(name="max_participantes", nullable = false)
-    private int maxParticipantes;
+    private Integer maxParticipantes;
 
     @Enumerated(EnumType.STRING)
     @Column(name="situacao", length = 20, nullable = false)
     private SituacaoExpedicao situacao;
 
     @Column(name="cancelamento_emergencial", nullable = false)
-    private boolean cancelamentoEmergencial;
+    private Boolean cancelamentoEmergencial;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name="caverna_id", nullable = false)

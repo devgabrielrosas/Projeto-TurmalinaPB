@@ -49,7 +49,7 @@ public class Setor {
     private BigDecimal extensaoAproximada;
 
     @Column(name = "risco_inundacao", nullable = false)
-    private boolean riscoInundacao;
+    private Boolean riscoInundacao;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)

@@ -44,10 +44,10 @@ public class Participacao {
     private BigDecimal valorDiaria;
 
     @Column(name = "quantidade_dias_prevista", nullable = false)
-    private int quantidadeDiasPrevista;
+    private Integer quantidadeDiasPrevista;
 
     @Column(name = "presenca_confirmada", nullable = false)
-    private boolean presencaConfirmada;
+    private Boolean presencaConfirmada;
 
     @Column(length = 500)
     private String observacoes;

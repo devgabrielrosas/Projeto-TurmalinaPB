@@ -45,8 +45,8 @@ public abstract class Pessoa {
     private String email;
     private String telefone;
     
-    @Column(columnDefinition="BOOLEAN DEFAULT TRUE")
-    private boolean ativa;
+    @Column(columnDefinition="Boolean DEFAULT TRUE")
+    private Boolean ativa;
 
     @Embedded
     private Endereco endereco;

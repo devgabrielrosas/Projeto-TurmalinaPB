@@ -58,7 +58,7 @@ public class Caverna {
     private LocalDate dataUltimaInspecao;
 
     @Column(name = "acesso_permitido", nullable = false)
-    private boolean acessoPermitido;
+    private Boolean acessoPermitido;
 
     @OneToMany(mappedBy = "caverna", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Setor> setores = new HashSet<>();

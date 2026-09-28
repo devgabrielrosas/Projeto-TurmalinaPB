@@ -2,15 +2,23 @@ package turmalina.pweb3.model.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +27,7 @@ import lombok.Setter;
 import turmalina.pweb3.model.enums.SituacaoExpedicao;
 
 @Entity 
-@Table(name="Expedicao")
+@Table(name="expedicao")
 @Getter 
 @Setter 
 @NoArgsConstructor 
@@ -61,5 +69,16 @@ public class Expedicao {
 
     @Column(name="cancelamento_emergencial", nullable = false)
     private boolean cancelamentoEmergencial;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="caverna_id", nullable = false)
+    private Caverna caverna;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "expedicao_setor", joinColumns = @JoinColumn(name = "expedicao_id"), inverseJoinColumns = @JoinColumn(name = "setor_id"))
+    private Set<Setor> setores = new HashSet<>();
+
+    @OneToOne(mappedBy = "expedicao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, optional = false)
+    private PlanoSeguranca planoSeguranca;
     
 }

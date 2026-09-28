@@ -1,5 +1,7 @@
 package turmalina.pweb3.model.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -34,12 +36,14 @@ public abstract class Pessoa {
     @Column(nullable = false, length = 70)
     private String nome;
 
-    @Column(nullable=false, length=11)
+    @Column(nullable=false, length=11, unique=true)
     private String cpf;
-
+    private LocalDate dataNascimento;
     private String email;
     private String telefone;
-    private boolean situacaoAtiva;
+    
+    @Column(columnDefinition="BOOLEAN DEFAULT TRUE")
+    private boolean ativa;
 
     @Embedded
     private Endereco endereco;

@@ -21,11 +21,13 @@ import turmalina.pweb3.model.enums.Titulacao;
 @AllArgsConstructor
 public class Pesquisador extends Pessoa {
 
-    @Column(nullable=false)
+    @Column(nullable=false, name="registro_institucional")
     private String registroInstitucional;
+
+    @Column(name="area_principal")
     private String areaPrincipal;
 
-    @Column(precision = 10, scale = 2)
+    @Column(precision = 10, scale = 2, name="valor_diario_bolsa")
     private BigDecimal valorDiarioBolsa; 
 
     @Enumerated(EnumType.STRING)

@@ -18,7 +18,7 @@ import turmalina.pweb3.model.enums.Datum;
 @AllArgsConstructor
 public class Localizacao {
     
-    private BigDecimal logitude;
+    private BigDecimal longitude;
     private BigDecimal latitude;
 
     @Enumerated(EnumType.STRING)

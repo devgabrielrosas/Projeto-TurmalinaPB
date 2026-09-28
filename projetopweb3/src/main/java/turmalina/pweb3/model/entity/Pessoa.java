@@ -38,7 +38,10 @@ public abstract class Pessoa {
 
     @Column(nullable=false, length=11, unique=true)
     private String cpf;
+
+    @Column(name="data_nascimento")
     private LocalDate dataNascimento;
+    
     private String email;
     private String telefone;
     

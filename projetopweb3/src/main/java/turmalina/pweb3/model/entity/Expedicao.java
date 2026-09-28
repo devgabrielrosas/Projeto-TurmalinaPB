@@ -80,5 +80,10 @@ public class Expedicao {
 
     @OneToOne(mappedBy = "expedicao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY, optional = false)
     private PlanoSeguranca planoSeguranca;
+
+    public void definirPlanoSeguranca(PlanoSeguranca plano) {
+        this.planoSeguranca = plano;
+        plano.setExpedicao(this);
+    }
     
 }

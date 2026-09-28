@@ -16,28 +16,36 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import turmalina.pweb3.model.enums.SituacaoAutorizacao;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name="autorizacao_ambiental")
 public class AutorizacaoAmbiental {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="numero", nullable = false, unique = true)
+    @Column(name="numero", nullable = false, unique = true, length=)
     private String numero;
 
-    @Column(name="orgao_emissor", nullable = false)
+    @Column(name="orgao_emissor", nullable = false, length=20)
     private String orgaoEmissor;
 
     @Column(name="data_emissor", nullable = false)
-    private LocalDate dataEmissor;
+    private LocalDate dataEmissao;
 
     @Column(name="data_validade", nullable = false)
     private LocalDate dataValidade;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="situacao")
+    @Column(name="situacao_autorizacao", nullable=false)
     private SituacaoAutorizacao situacaoAutorizacao;
 
     @Column(name="observacoes")

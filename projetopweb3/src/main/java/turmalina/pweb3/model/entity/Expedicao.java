@@ -85,5 +85,28 @@ public class Expedicao {
         this.planoSeguranca = plano;
         plano.setExpedicao(this);
     }
+
+    public void adicionarSetor(Setor setor) {
+    if (!setor.getCaverna().getId().equals(caverna.getId())) {
+        throw new IllegalArgumentException("O setor não pertence à caverna da expedição");
+    }
+    setores.add(setor);
+}
+
+    public void adicionarParticipacao(Participacao participacao) {
+        if (participacoes.size() >= maxParticipantes) {
+            throw new IllegalStateException("A expedição atingiu o máximo de participantes");
+        }
+        participacoes.add(participacao);
+        participacao.setExpedicao(this);
+    }
+
+    public void adicionarColeta(Coleta coleta) {
+        if (!setores.contains(coleta.getSetor())) {
+            throw new IllegalArgumentException("O setor da coleta não faz parte dos setores da expedição");
+        }
+        coletas.add(coleta);
+        coleta.setExpedicao(this);
+    }
     
 }

@@ -3,8 +3,6 @@ package turmalina.pweb3.model.entity;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

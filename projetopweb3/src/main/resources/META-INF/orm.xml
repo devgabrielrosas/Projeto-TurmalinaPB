@@ -5,7 +5,58 @@
                       https://jakarta.ee/xml/ns/persistence/orm/orm_3_1.xsd"
                   version="3.1">
 
+    <named-query name="Expedicao.listarPorPeriodoESituacao">
+        <query><![CDATA[
+            select e.codigo,
+                   e.titulo,
+                   c.nome,
+                   e.inicioPrevisto,
+                   e.terminoPrevisto,
+                   e.situacao
+              from Expedicao e
+              join e.caverna c
+             where e.inicioPrevisto between :inicio and :fim
+               and e.situacao = :situacao
+             order by e.inicioPrevisto, e.codigo
+        ]]></query>
+    </named-query>
 
-<!-- Quando terminar nomear as consultas aqui --> 
+    <named-query name="Participacao.listarPorExpedicaoComPessoa">
+        <query><![CDATA[
+            select p
+              from Participacao p
+              join fetch p.pessoa
+             where p.expedicao.id = :expedicaoId
+             order by p.pessoa.nome
+        ]]></query>
+    </named-query>
+
+    <named-query name="Coleta.listarPorExpedicao">
+        <query><![CDATA[
+            select c
+              from Coleta c
+              join fetch c.setor
+              join fetch c.pesquisador
+             where c.expedicao.id = :expedicaoId
+             order by c.dataHora
+        ]]></query>
+    </named-query>
+
+    <named-query name="Amostra.listarPorColeta">
+        <query><![CDATA[
+            select a.id,
+                   a.codigoCampo,
+                   a.categoria,
+                   a.quantidade,
+                   a.unidade,
+                   a.dataAcondicionamento,
+                   a.condicaoConservacao,
+                   a.materialPerigoso,
+                   a.observacoes
+              from Amostra a
+             where a.coleta.id = :coletaId
+             order by a.codigoCampo
+        ]]></query>
+    </named-query>
 
 </entity-mappings>

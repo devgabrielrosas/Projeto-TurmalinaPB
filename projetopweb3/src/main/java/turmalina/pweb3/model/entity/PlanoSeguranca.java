@@ -45,10 +45,10 @@ public class PlanoSeguranca {
     private String contatoEmergencia;
 
     @Column(name="tempo_max_sem_comunicacao", nullable = false)
-    private int tempoMaxSemComunicacao;
+    private Integer tempoMaxSemComunicacao;
 
     @Column(name="equipe_medica_necessaria", nullable = false)
-    private boolean equipeMedicaNecessaria;
+    private Boolean equipeMedicaNecessaria;
 
     @Lob
     @Basic(fetch= FetchType.LAZY)

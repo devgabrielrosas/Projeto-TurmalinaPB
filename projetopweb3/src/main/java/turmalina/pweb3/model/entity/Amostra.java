@@ -58,7 +58,7 @@ public class Amostra {
     private CondicaoConservacao condicaoConservacao;
 
     @Column(name = "material_perigoso", nullable = false)
-    private boolean materialPerigoso;
+    private Boolean materialPerigoso;
 
     @Lob
     @Basic(fetch = FetchType.LAZY)

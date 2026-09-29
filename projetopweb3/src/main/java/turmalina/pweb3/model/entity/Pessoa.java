@@ -49,7 +49,7 @@ public abstract class Pessoa {
     private String telefone;
 
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
-    private boolean ativa;
+    private Boolean ativa;
 
     @Embedded
     private Endereco endereco;

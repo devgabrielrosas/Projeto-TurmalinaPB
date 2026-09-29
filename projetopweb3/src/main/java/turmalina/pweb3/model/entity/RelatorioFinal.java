@@ -43,7 +43,7 @@ public class RelatorioFinal {
     private LocalDate dataSubmissao;
 
     @Column(name = "total_paginas", nullable = false)
-    private int totalPaginas;
+    private Integer totalPaginas;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
@@ -55,7 +55,7 @@ public class RelatorioFinal {
     private byte[] arquivoCompleto;
 
     @Column(name = "publicacao_autorizada", nullable = false)
-    private boolean publicacaoAutorizada;
+    private Boolean publicacaoAutorizada;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "expedicao_id", nullable = false, unique = true)

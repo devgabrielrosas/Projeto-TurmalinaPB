@@ -57,5 +57,5 @@ public class Equipamento {
     private SituacaoOperacionalEquipamento situacao;
 
     @Column(name = "exige_calibracao", nullable = false)
-    private boolean exigeCalibracao;
+    private Boolean exigeCalibracao;
 }

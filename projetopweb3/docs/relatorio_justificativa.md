@@ -11,3 +11,6 @@
 
 ## Orphan Removal
     O orphanRemoval foi aplicado nas associações de composição entre Caverna e Setor, Expedicao e PlanoSeguranca, Expedicao e Participacao, Expedicao e Coleta, e Coleta e Amostra. Nesses casos, a entidade dependente não possui sentido no domínio sem sua entidade principal; portanto, ao ser removida da associação, também deve ser excluída do banco de dados. O recurso não foi utilizado nas demais associações porque a retirada de uma referência não deve implicar automaticamente a exclusão da entidade relacionada.
+
+## Fetch
+    O FetchType.LAZY foi utilizado em todas as associações para evitar o carregamento automático extenso de objetos, pois uma expedição pode possuir setores, participantes, plano de segurança, coletas e amostras, além de se relacionar com pessoas, equipamentos e documentos. Dessa forma, cada relacionamento é carregado apenas quando necessário. Nas consultas de listagem, devem ser utilizadas projeções contendo somente os dados exibidos; nas consultas de detalhes, os relacionamentos necessários devem ser obtidos por meio de fetch join, evitando o problema N+1. Os arquivos binários também foram configurados com carregamento tardio e devem ser recuperados por consultas específicas de download, impedindo que sejam carregados em consultas comuns.

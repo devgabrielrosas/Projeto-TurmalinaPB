@@ -21,6 +21,25 @@
         ]]></query>
     </named-query>
 
+    <named-query name="Expedicao.buscarDetalhesSemBinarios">
+        <query><![CDATA[
+            select e.codigo,
+                   e.titulo,
+                   e.objetivo,
+                   c.nome,
+                   e.inicioPrevisto,
+                   e.terminoPrevisto,
+                   e.orcamentoAprovado,
+                   e.custoRealizado,
+                   e.maxParticipantes,
+                   e.situacao,
+                   e.cancelamentoEmergencial
+              from Expedicao e
+              join e.caverna c
+             where e.id = :expedicaoId
+        ]]></query>
+    </named-query>
+
     <named-query name="Participacao.listarPorExpedicaoComPessoa">
         <query><![CDATA[
             select p
@@ -56,6 +75,46 @@
               from Amostra a
              where a.coleta.id = :coletaId
              order by a.codigoCampo
+        ]]></query>
+    </named-query>
+
+    <named-query name="Equipamento.listarDisponiveisPorPeriodo">
+        <query><![CDATA[
+            select e
+              from Equipamento e
+             where e.situacao = turmalina.pweb3.model.enums.SituacaoOperacionalEquipamento.DISPONIVEL
+               and not exists (
+                   select m.id
+                     from MovimentacaoEquipamento m
+                    where m.equipamento = e
+                      and m.retiradaEm < :fim
+                      and (m.devolucaoEfetiva is null or m.devolucaoEfetiva > :inicio)
+               )
+             order by e.nome, e.codigoPatrimonial
+        ]]></query>
+    </named-query>
+
+    <named-query name="PlanoSeguranca.baixarMapaPorExpedicao">
+        <query><![CDATA[
+            select p.mapaRota
+              from PlanoSeguranca p
+             where p.expedicao.id = :expedicaoId
+        ]]></query>
+    </named-query>
+
+    <named-query name="AutorizacaoAmbiental.baixarArquivoPorExpedicao">
+        <query><![CDATA[
+            select a.arquivoPdf
+              from AutorizacaoAmbiental a
+             where a.expedicao.id = :expedicaoId
+        ]]></query>
+    </named-query>
+
+    <named-query name="RelatorioFinal.baixarArquivoPorExpedicao">
+        <query><![CDATA[
+            select r.arquivoCompleto
+              from RelatorioFinal r
+             where r.expedicao.id = :expedicaoId
         ]]></query>
     </named-query>
 

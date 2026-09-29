@@ -39,13 +39,16 @@ public abstract class Pessoa {
     @Column(nullable=false, length=11, unique=true)
     private String cpf;
 
-    @Column(name="data_nascimento")
+    @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-    
+
+    @Column(nullable = false, length = 150)
     private String email;
+
+    @Column(nullable = false, length = 20)
     private String telefone;
-    
-    @Column(columnDefinition="BOOLEAN DEFAULT TRUE")
+
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT TRUE")
     private boolean ativa;
 
     @Embedded

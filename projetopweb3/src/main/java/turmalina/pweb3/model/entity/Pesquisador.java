@@ -21,16 +21,17 @@ import turmalina.pweb3.model.enums.Titulacao;
 @AllArgsConstructor
 public class Pesquisador extends Pessoa {
 
-    @Column(nullable=false, name="registro_institucional")
+    @Column(name = "registro_institucional", nullable = false, length = 30)
     private String registroInstitucional;
 
-    @Column(name="area_principal")
+    @Column(name = "area_principal", nullable = false, length = 100)
     private String areaPrincipal;
 
-    @Column(precision = 10, scale = 2, name="valor_diario_bolsa")
+    @Column(name = "valor_diario_bolsa", nullable = false, precision = 10, scale = 2)
     private BigDecimal valorDiarioBolsa; 
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
     private Titulacao titulacao;
 
 }

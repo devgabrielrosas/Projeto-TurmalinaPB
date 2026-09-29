@@ -21,15 +21,16 @@ import turmalina.pweb3.model.enums.NivelCertificado;
 @AllArgsConstructor
 public class GuiaEspeleologia extends Pessoa {
 
-    @Column(nullable=false, name="numero_credenciamento")
+    @Column(name = "numero_credenciamento", nullable = false, length = 30)
     private String numeroCredenciamento;
 
-    @Column (name="validade_certificado")
+    @Column(name = "validade_certificado", nullable = false)
     private LocalDate validadeCertificado;
 
-    @Column (name="expedicoes_concluidas")
+    @Column(name = "expedicoes_concluidas", nullable = false)
     private int expedicoesConcluidas;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
     private NivelCertificado nivelCertificado;
 }

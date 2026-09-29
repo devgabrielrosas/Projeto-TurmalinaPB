@@ -32,7 +32,7 @@ public class AutorizacaoAmbiental {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="numero", nullable = false, unique = true, length=)
+    @Column(name="numero", nullable = false, unique = true)
     private String numero;
 
     @Column(name="orgao_emissor", nullable = false, length=20)

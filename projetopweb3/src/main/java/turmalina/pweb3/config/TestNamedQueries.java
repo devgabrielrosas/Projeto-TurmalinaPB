@@ -80,7 +80,7 @@ public class TestNamedQueries {
                         participacao.getPessoa().getNome(),
                         participacao.getPessoa().getCpf(),
                         participacao.getPapel(),
-                        participacao.isPresencaConfirmada());
+                        participacao.getPresencaConfirmada());
             }
 
             System.out.println("\n=== Coletas da expedicao TURM-E002 ===");

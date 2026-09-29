@@ -63,13 +63,4 @@ public class Caverna {
     @OneToMany(mappedBy = "caverna", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Setor> setores = new HashSet<>();
 
-    public void adicionarSetor(Setor setor) {
-        setores.add(setor);
-        setor.setCaverna(this);
-    }
-
-    public void removerSetor(Setor setor) {
-        setores.remove(setor);
-        setor.setCaverna(null);
-    }
 }

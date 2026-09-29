@@ -67,20 +67,5 @@ public class MovimentacaoEquipamento {
     @JoinColumn(name = "responsavel_id", nullable = false)
     private Pessoa responsavel;
 
-    public void registrarRetirada(Instant retiradaEm, LocalDateTime devolucaoPrevista) {
-        if (!devolucaoPrevista.atZone(ZoneId.systemDefault()).toInstant().isAfter(retiradaEm)) {
-            throw new IllegalArgumentException("A devolução prevista deve ser posterior à retirada");
-        }
-        this.retiradaEm = retiradaEm;
-        this.devolucaoPrevista = devolucaoPrevista;
-    }
 
-    public void registrarDevolucao(Instant devolucaoEfetiva, EstadoEquipamento estadoRetorno, BigDecimal custoAvaria) {
-        if (devolucaoEfetiva.isBefore(retiradaEm)) {
-            throw new IllegalArgumentException("A devolução efetiva não pode ser anterior à retirada");
-        }
-        this.devolucaoEfetiva = devolucaoEfetiva;
-        this.estadoRetorno = estadoRetorno;
-        this.custoAvaria = custoAvaria;
-    }
 }

@@ -76,8 +76,4 @@ public class Coleta {
     @OneToMany(mappedBy = "coleta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Amostra> amostras = new HashSet<>();
 
-    public void adicionarAmostra(Amostra amostra) {
-        amostras.add(amostra);
-        amostra.setColeta(this);
-    }
 }
